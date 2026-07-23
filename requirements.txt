@@ -1,0 +1,19 @@
+# Зависимости приложения «Ячейка по штрихкоду» (Windows, Python 3.10 x64).
+#
+#   py -3.10 -m venv .venv
+#   .venv\Scripts\python -m pip install -r requirements.txt
+#
+# ВАЖНО: разрядность Python должна совпадать с разрядностью платформы 1С (x64).
+# 32-битный Python с x64-коннектором 1С не соединится.
+
+# --- Интерфейс ---
+# PySide2/Qt5, а не PySide6/Qt6: Qt6 требует Windows 10 1809+, а Qt5.15 работает
+# начиная с Win7 — одна сборка закрывает и старые рабочие места, и новые.
+# PySide2 под LGPL (можно в коммерческом продукте); PyQt5 (GPL) не использовать.
+PySide2==5.15.2.1
+
+# --- Windows: COM-подключение к 1С (win32com) и DPAPI для пароля (win32crypt) ---
+pywin32>=306 ; platform_system == "Windows"
+
+# --- Доставка файла выгрузки через Яндекс.Диск (REST API по HTTPS) ---
+requests>=2.31

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Артефакты сборки
+build/
+dist/
+# Среда выполнения VC++ (~25 МБ) — качается build.ps1, в репозиторий не кладём
+packaging/redist/*.exe
+dist_old/
+dist/build-*/
